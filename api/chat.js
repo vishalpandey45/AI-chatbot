@@ -22,12 +22,18 @@ export default async function handler(req, res) {
     }
   );
 
-  const data = await response.json();
-  console.log(JSON.stringify(data,null,2));
+ const data = await response.json();
 
-  const reply =
-    data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-    "Sorry, no response";
+console.log(JSON.stringify(data, null, 2));
 
-  res.status(200).json({ reply });
+const reply =
+  data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+if (!reply) {
+  return res.status(200).json({
+    reply: JSON.stringify(data)
+  });
+}
+
+res.status(200).json({ reply });
 }
