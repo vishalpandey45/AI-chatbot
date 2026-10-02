@@ -24,16 +24,9 @@ export default async function handler(req, res) {
 
  const data = await response.json();
 
-console.log(JSON.stringify(data, null, 2));
-
 const reply =
-  data?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-if (!reply) {
-  return res.status(200).json({
-    reply: JSON.stringify(data)
-  });
-}
+  data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+  "Sorry, no response";
 
 res.status(200).json({ reply });
 }
