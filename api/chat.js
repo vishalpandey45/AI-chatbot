@@ -4,6 +4,15 @@ export default async function handler(req, res) {
   }
 
   const { message } = req.body;
+  if (
+  message.toLowerCase().includes("creator") ||
+  message.toLowerCase().includes("kisne banaya") ||
+  message.toLowerCase().includes("developer")
+) {
+  return res.status(200).json({
+    reply: "My creator is Vishal Pandey 👨‍💻"
+  });
+}
 
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
