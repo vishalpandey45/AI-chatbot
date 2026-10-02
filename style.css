@@ -1272,43 +1272,57 @@ text-align:center;
 }
 @media (max-width: 768px) {
 
+    .app{
+        width:100%;
+        overflow:hidden;
+    }
+
     .sidebar{
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        z-index: 1000;
-        width: 250px;
+        position:fixed;
+        left:0;
+        top:0;
+        width:250px;
+        height:100vh;
+        z-index:9999;
     }
 
     .sidebar.closed{
-        transform: translateX(-100%);
-        width: 250px;
+        transform:translateX(-100%);
     }
 
     .chat-container{
-        width: 100%;
-        margin-left: 0;
+        width:100%;
+        min-width:0;
     }
 
-    .app{
-        overflow-x: hidden;
+    .welcome-screen h1{
+        font-size:30px;
     }
 
-    .header h1{
-        font-size: 16px;
+    .suggestion-cards{
+        grid-template-columns:1fr;
+        width:100%;
     }
 
     .input-area{
-        margin: 8px;
+        gap:5px;
+        margin:8px;
+        padding:8px;
     }
 
-    #chat-box{
-        padding: 10px;
+    #uploadBtn,
+    #micBtn,
+    #sendBtn{
+        padding:10px;
+    }
+
+    #userInput{
+        min-width:0;
+        width:100%;
     }
 
     .user-message,
     .bot-message{
-        max-width: 95%;
+        max-width:95%;
     }
 }
