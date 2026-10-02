@@ -31,7 +31,8 @@ body{
     animation:backgroundMove 15s ease infinite;
 
     height:100vh;
-    overflow:hidden;
+    overflow-x:hidden;
+overflow-y:hidden;
 }
 
 
@@ -1267,5 +1268,47 @@ text-align:center;
         opacity:1;
         text-shadow:
         0 0 15px rgba(96,165,250,.8);
+    }
+}
+@media (max-width: 768px) {
+
+    .sidebar{
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+        width: 250px;
+    }
+
+    .sidebar.closed{
+        transform: translateX(-100%);
+        width: 250px;
+    }
+
+    .chat-container{
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .app{
+        overflow-x: hidden;
+    }
+
+    .header h1{
+        font-size: 16px;
+    }
+
+    .input-area{
+        margin: 8px;
+    }
+
+    #chat-box{
+        padding: 10px;
+    }
+
+    .user-message,
+    .bot-message{
+        max-width: 95%;
     }
 }
